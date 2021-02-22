@@ -109,12 +109,14 @@ music.addEventListener("ended", () => {
 music.volume = volume;
 
 function setVolumeBar(e) {
+    
   volumeBar.style.width = `${e.offsetX}%`;
   e.offsetX > 85
     ? (volumeBar.style.background = "#ec4242")
     : (volumeBar.style.background = "#90e27d");
   volume = e.offsetX > 0 ? e.offsetX / 100 : 0;
   music.volume = volume;
+  if (muteButton.classList.contains("fa-volume-mute")) toggleMute();
 }
 
 function toggleMute() {
