@@ -109,7 +109,6 @@ music.addEventListener("ended", () => {
 music.volume = volume;
 
 function setVolumeBar(e) {
-    
   volumeBar.style.width = `${e.offsetX}%`;
   e.offsetX > 85
     ? (volumeBar.style.background = "#ec4242")
@@ -136,3 +135,11 @@ function toggleMute() {
 
 volumeEl.addEventListener("click", setVolumeBar);
 muteButton.addEventListener("click", toggleMute);
+
+//when user turns back to  page, if audio isplaying set button play to play else set it to pause
+document.addEventListener("visibilitychange", function () {
+  if (document.visibilityState === "visible" && isPlaying) {
+    playBTtn.classList.replace("fa-play", "fa-pause");
+    playBTtn.setAttribute("title", "Pause");
+  }
+});
