@@ -143,3 +143,10 @@ document.addEventListener("visibilitychange", function () {
     playBTtn.setAttribute("title", "Pause");
   }
 });
+
+//when user turns back to  page, if audio is playing set button play to play else set it to pause(mobile devices can play or pause audio while page is minimized)
+document.addEventListener("visibilitychange", function () {
+  if (music.paused) pauseSong();
+  else playSong();
+});
+
